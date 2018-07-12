@@ -1,16 +1,40 @@
 ///////////////////////////////////////
 // Lecture: Hoisting
+// calcAge(1999);
 
+// function calcAge(year){
+//   console.log(2018 - year);
+//   console.log(this);
+// }
 
+// retirement(1987);
 
+// var retirement = function(year){
+//   console.log(65 - (2018 - year));
+// }
 
+var john = {
+  name: "john",
+  yearOfBirth: 1990,
+  calcYear: function(){
+    console.log(this);
+    console.log(2016 - this.yearOfBirth);
+    function innerFunction(){
+      console.log(this);
+    }
+    innerFunction();
+  }
+};
 
+john.calcYear();
 
+var mike = {
+  name: "mike",
+  yearOfBirth: 1984,
+};
 
-
-
-
-
+mike.calcYear = john.calcYear;
+mike.calcYear();
 
 
 
